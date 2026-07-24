@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Stud
+{
+    int num , marks;
+    char name[30];
+};
+void main()
+{
+
+    int n,i;
+    struct Stud * p;
+    printf("Enter the no.of Students:");
+    scanf("%d",&n);
+    p =(struct Stud *) malloc (n * sizeof(struct Stud));
+    if(p==NULL)                // if memory allocation fails, show error
+    {
+        printf("memory is not available");
+    }
+    printf("\n Enter Students detail : \n");
+    for(i=0;i<n;i++)            // loop to input each student's details
+    {
+        printf(" \n Enter Student num: ");
+        scanf("%d",&p[i].num);
+        printf("Enter Student name: ");
+        scanf("%s",&p[i].name);
+        printf("Enter Student marks: ");
+        scanf("%d",&p[i].marks);
+    }
+    printf("\n num \t name \t marks");
+    for(i=0;i<n;i++)            // loop to display each student's details
+    {
+        printf("\n %d \t %s \t %d",p[i].num,p[i].name,p[i].marks);
+    }
+    free(p);
+}
